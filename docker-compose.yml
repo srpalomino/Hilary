@@ -44,8 +44,8 @@ services:
       - oae-redis
       - oae-etherpad
     extra_hosts:
-      - "admin.oae.com:172.20.0.9"
-    #   - "tenant1.oae.com:172.20.0.9"
+      - "admin.oae.com:127.0.0.1"
+      - "tenant1.oae.com:127.0.0.1"
       # - "any.other.host.oae.com:172.20.0.9"
     image: hilary:latest
     networks:
@@ -94,15 +94,15 @@ services:
         ipv4_address: 172.20.0.9 # this is needed because of multi-tenancy
     tty: false
     volumes:
-      - /src/files:/usr/share/files
-      - /src/Hilary/3akai-ux/nginx/nginx.conf.docker:/etc/nginx/nginx.conf
-      - /src/Hilary/3akai-ux/nginx/mime.conf:/etc/nginx/mime.conf
-      - /src/Hilary/3akai-ux/nginx/nginx-selfsigned.crt:/etc/nginx/nginx-selfsigned.crt
-      - /src/Hilary/3akai-ux/nginx/nginx-selfsigned.key:/etc/nginx/nginx-selfsigned.key
-      - /src/Hilary/3akai-ux/nginx/self-signed.conf:/etc/nginx/self-signed.conf
-      - /src/Hilary/3akai-ux/nginx/ssl-params.conf:/etc/nginx/ssl-params.conf
-      - /src/Hilary/3akai-ux/nginx/dhparam.pem:/etc/nginx/dhparam.pem
-      - /src/Hilary/3akai-ux:/usr/share/3akai
+      - /src/files
+      - /src/Hilary/3akai-ux/nginx/nginx.conf.docker
+      - /src/Hilary/3akai-ux/nginx/mime.conf
+      - /src/Hilary/3akai-ux/nginx/nginx-selfsigned.crt
+      - /src/Hilary/3akai-ux/nginx/nginx-selfsigned.key
+      - /src/Hilary/3akai-ux/nginx/self-signed.conf
+      - /src/Hilary/3akai-ux/nginx/ssl-params.conf
+      - /src/Hilary/3akai-ux/nginx/dhparam.pem
+      - /src/Hilary/3akai-ux
     volumes_from:
       - oae-hilary
     ports:
