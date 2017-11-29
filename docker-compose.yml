@@ -98,15 +98,18 @@ services:
         ipv4_address: 172.20.0.9 # this is needed because of multi-tenancy
     tty: false
     volumes:
-      - /src/files
-      - /src/Hilary/3akai-ux/nginx/nginx.conf.docker
-      - /src/Hilary/3akai-ux/nginx/mime.conf
-      - /src/Hilary/3akai-ux/nginx/nginx-selfsigned.crt
-      - /src/Hilary/3akai-ux/nginx/nginx-selfsigned.key
-      - /src/Hilary/3akai-ux/nginx/self-signed.conf
-      - /src/Hilary/3akai-ux/nginx/ssl-params.conf
-      - /src/Hilary/3akai-ux/nginx/dhparam.pem
-      - /src/Hilary/3akai-ux
+      - /var/lib/docker/volumes/ded2ae64d168010bea92de09ac726f1d34302f994b948a022c73f2dc64111ae2/_data:/src/Hilary/3akai-ux/nginx/ssl-params.conf
+      - /var/lib/docker/volumes/0c9e58cfb26da11a421f578f906ccfb02152819f9e3bc985234460ea2728608a/_data:/src/files
+      - /src/tmp/oae:/tmp/oae
+      - /var/lib/docker/volumes/82756c9ceac3c4b3959a99973cacbdc867c8cd62b5684cc69c61fca0dff95a3c/_data:/src/Hilary/3akai-ux/nginx/dhparam.pem
+      - /var/lib/docker/volumes/1f7ad4075d2afc1b2e7026d372ff54aa1645b23e6eaf5021960d72745dd4e601/_data:/src/Hilary/3akai-ux/nginx/nginx-selfsigned.key
+      - /var/lib/docker/volumes/25f9322e239d7420ba2321c597716dd2f9b9849506a18f351bb4fc2052406bea/_data:/src/Hilary/3akai-ux/nginx/nginx.conf.docker
+      - /var/lib/docker/volumes/db9c36a55753d5ca329808652e91d907ca1aeebbbeef9577e896304c6e609a78/_data:/src/Hilary/3akai-ux/nginx/self-signed.conf
+      - /src/Hilary:/usr/src/Hilary
+      - /src/files:/usr/src/files
+      - /var/lib/docker/volumes/b883807152f68c870091a5a90f58cff53d64e7b3a6ed3461c3dfc6ed0926df07/_data:/src/Hilary/3akai-ux
+      - /var/lib/docker/volumes/dbdb146af13f3ae4d7d236a59861e360756436c5a843184ec53502011e3b8c85/_data:/src/Hilary/3akai-ux/nginx/mime.conf
+      - /var/lib/docker/volumes/36ac567bcb52c537bd469be79b29de663be5b3633237ac59083d62e36cb714a0/_data:/src/Hilary/3akai-ux/nginx/nginx-selfsigned.crt
     volumes_from:
       - oae-hilary
     ports:
