@@ -64,6 +64,8 @@ services:
     ports:
       - 6379:6379
     tty: false
+    volumes:
+      - /var/lib/docker/volumes/b67bb77cfcd308dea8532f5dcaf6b9716cbfa9bdd0e18b80ee95e7a746c4044e/_data:/data 
     networks:
       - my_network
   oae-elasticsearch:
@@ -89,7 +91,7 @@ services:
     depends_on:
       - oae-hilary
     image: nginx:stable-alpine
-    networks:
+    networks:e topics on this reference page are organized alphabetically by top-level key to reflect the structure of the Compose file itself. Top-level keys that define a section in the configuration file such as build, deploy, d
       my_network:
         ipv4_address: 172.20.0.9 # this is needed because of multi-tenancy
     tty: false
