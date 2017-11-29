@@ -65,7 +65,7 @@ services:
       - 6379:6379
     tty: false
     volumes:
-      - /var/lib/docker/volumes/b67bb77cfcd308dea8532f5dcaf6b9716cbfa9bdd0e18b80ee95e7a746c4044e/_data:/data 
+      - /var/lib/docker/volumes/b67bb77cfcd308dea8532f5dcaf6b9716cbfa9bdd0e18b80ee95e7a746c4044e/_data:/data
     networks:
       - my_network
   oae-elasticsearch:
@@ -86,6 +86,8 @@ services:
     networks:
       - my_network
     tty: false
+    volumes:
+      - /var/lib/docker/volumes/c7b09ae91aaca91d70b937129fc702f1235e03ee853ee4c8df4b225ec273224b/_data:/var/lib/rabbitmq
   oae-nginx:
     container_name: oae-nginx
     depends_on:
